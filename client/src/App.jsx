@@ -19,12 +19,12 @@ const App = () => {
   useEffect(() => {
     dispatch(generateAccessToken())
 
-    const id = setTimeout(() => {
+    const id = setInterval(() => {
       dispatch(generateAccessToken())
     }, 1000*60*50)
 
     return () => {
-      clearTimeout(id)
+      clearInterval(id)
     }
   },[])
 
